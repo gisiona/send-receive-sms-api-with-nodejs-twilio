@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 
+/********************************** ENVIAR SMS COM TWILIO ****************************** */
 const ACCOUNTSID = process.env.ACCOUNT_SID;
 const AUTHTOKEN = process.env.AUTH_TOKEN;
 const MYPHONENUMBER = process.env.MY_PHONE_NUMBER;
@@ -22,3 +23,23 @@ twilioClient.messages.create({
 })
 .then(mensage =>  console.log(mensage.sid))
 .catch(e => console.log('OPS.... DEU RUIM AO ENVIAR MENSAGEM : ' + e));
+
+
+
+/********************************** RECEBER SMS COM TWILIO ****************************** */
+const mensagingResponse = require('twilio').twiml.MessagingResponse();
+const express = require('express');
+const app = express();
+
+app.post('/sms', (req,res) => {
+    const twiml = new mensagingResponse();
+    twiml.mensage('Olá recebir sua mensagem, em breve entrarei em contato. Obrigado.');
+
+    res.writeHead(200, {'Content-Type': 'text/xml'});
+    res.end(twiml.toString());
+});
+
+
+app.listen(process.env.PORT || 3000, () => {
+    console.log('SERVIDOR RODANDO NA PORTA : ' + process.env.PORT );
+});
