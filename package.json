@@ -1,0 +1,29 @@
+{
+  "name": "send-receive-sms-api-with-nodejs-twilio",
+  "version": "1.0.0",
+  "description": "API para enviar e receber SMS com a biblioteca TWILIO",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gisiona/send-receive-sms-api-with-nodejs-twilio.git"
+  },
+  "keywords": [
+    "API",
+    "NodeJS",
+    "SMS",
+    "Twilio"
+  ],
+  "author": "Gisiona Costa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gisiona/send-receive-sms-api-with-nodejs-twilio/issues"
+  },
+  "homepage": "https://github.com/Gisiona/send-receive-sms-api-with-nodejs-twilio#readme",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "twilio": "^3.32.0"
+  }
+}
